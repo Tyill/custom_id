@@ -24,6 +24,6 @@ add_library(custom_id STATIC ${CID_SRC})
 
 FILE(GLOB_RECURSE TEST_SRC "test/*.cpp" "test/*.h")
 
-add_executable(test ${TEST_SRC})
+add_executable(test_id ${TEST_SRC})
 
-target_link_libraries( test custom_id )
+target_link_libraries( test_id custom_id )
