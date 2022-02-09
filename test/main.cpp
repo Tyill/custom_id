@@ -7,6 +7,8 @@ int main(int argc, char **argv) {
 
     CustomId cid;
 
+    assert(!cid.setCurrentId("D1"));
+
     assert(cid.nextId() == "A1");
 
     assert(cid.nextId() == "A2");
@@ -38,4 +40,6 @@ int main(int argc, char **argv) {
 
     assert(cid.setCurrentId("Z9-Z9-Z9-Z9-Z9-Z9-Z9-Z9-Z9-Z9"));
     assert(cid.nextId() == "A1");
+        
+    assert(!cid.setCurrentId("Z9-Z9-Z9-Z9-Z9-Z9-Z9-Z9-Z9-Z9-Z9"));
 }
