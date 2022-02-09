@@ -25,14 +25,14 @@ public:
 
     /// return - has next?
     bool increment() {
-        int cnum = m_value.back() - 48;
+        int cnum = m_value[1] - 48;
         if (cnum < 9) {
             ++cnum;
-            m_value.back() = cnum + 48;
+            m_value[1] = cnum + 48;
             return true;
         }
        
-        char csymb = *(m_value.end() - 2);
+        char csymb = m_value[0];
         char nextSymb = ' ';
         for (size_t i = 0; i < m_alfabet.size() - 1; ++i) {
             if (csymb == m_alfabet[i]) {
@@ -43,8 +43,8 @@ public:
         bool hasNext = nextSymb != ' ';
 
         if (hasNext) {
-            *(m_value.end() - 2) = nextSymb;
-            *(m_value.end() - 1) = 1 + 48;
+            m_value[0] = nextSymb;
+            m_value[1] = 1 + 48;
         }        
         return hasNext;
     }
