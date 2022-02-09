@@ -58,9 +58,9 @@ string CustomId::Impl::nextId() {
 
     for (size_t i = m_currentId.size() - 1; i >= 0; --i) {
         if (!m_currentId[i].increment()) {
-            for (size_t j = i; j < m_currentId.size(); ++j) {
-                m_currentId[j].reset();
-            }
+            
+            m_currentId[i].reset();
+
             if (i == 0) {
                 m_currentId.emplace_back(m_alfabet);
 
